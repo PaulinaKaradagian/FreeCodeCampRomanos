@@ -1,0 +1,50 @@
+function telephoneCheck(str) {
+  let regex1 = /[1]\s[(]\d{3}[)]\s\d{3}[-]\d{4}/ //matchea 1 (555) 555-5555
+  let regex2 = /[1][(]\d{3}[)]\d{3}[-]\d{4}/ //matchea 1(555)555-5555
+  let regex3 = /[1]\s\d{3}[-]\d{3}[-]\d{4}/ //matchea 1 555-555-5555
+  let regex4 = /[1]\s\d{3}\s\d{3}\s\d{4}/ //matchea 1 555 555 5555
+  let regex5 = /[(]\d{3}[)]\s\d{3}[-]\d{4}/ //matchea (555) 555-5555
+  let regex6 = /[(]\d{3}[)]\d{3}[-]\d{4}/ //matchea (555)555-5555
+  let regex7 = /\d{3}\s\d{3}\s\d{4}/ //matchea 555 555 5555
+  let regex8 = /\d{3}[-]\d{3}[-]\d{4}/ //matchea 555-555-5555
+  let regex9 = /\d{10}/ //matchea 5555555555
+
+  if(str.length > 16) { // si es más grande que 16 chars, falso automatico
+    return false;
+    
+  }
+  else if(str.length == 11 || str.length == 15 || str.length < 10) { //Reglas del challenge no permite q la respuesta correcta tenga 11 o 15 chars o sea menos que 10, asi q false de nuevo
+    return false;
+    
+  }
+
+  else if(str.length == 16 && str.match(regex1)) { //solo un formato posible por la respuesta correcta cuando el length del char es 16
+    return true;
+    
+  }
+
+  else if (str.length == 14 && (str.match(regex2) || str.match(regex3) || str.match(regex4) || str.match(regex5))) { //4 respuestas posibles cuando el length es 14 
+    return true;
+   
+  }
+  
+  else if (str.length == 13 && str.match(regex6)) { //solo un formato posible para resp correcta cuando el length es 13
+    return true;
+    
+  }
+
+  else if (str.length == 12 && (str.match(regex7) || str.match(regex8))) { //2 posibilidades cuando el length es 12
+    return true;
+   
+  }
+  else if (str.length == 10 && str.match(regex9)) { //matchea por los 10 numeros 
+    return true;
+    
+  }
+  
+  else { 
+    return false;
+    
+
+}
+}
