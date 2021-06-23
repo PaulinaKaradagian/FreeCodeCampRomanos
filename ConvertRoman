@@ -1,0 +1,48 @@
+ function convertToRoman(num) {
+  let numeroRomano = ""
+
+  while (num !== 0) {
+    if (num >= 1000) {
+      numeroRomano += "M"
+      num -= 1000
+    } else if (num >= 900) {
+        numeroRomano += "CM"
+        num -= 900
+    } else if (num >= 500) {
+        numeroRomano += "D"
+        num -= 500
+    } else if (num >= 400) {
+        numeroRomano += "CD"
+        num -= 400
+    } else if (num >= 100) {
+        numeroRomano += "C"
+        num -= 100
+    } else if (num >= 90) {
+        numeroRomano += "XC"
+        num -= 90
+    } else if (num >= 50) {
+        numeroRomano += "L"
+        num -= 50
+    } else if (num >= 40) {
+        numeroRomano += "XL"
+        num -= 40
+    } else if (num >= 10) {
+        numeroRomano += "X"
+        num -= 10
+    } else if (num >= 9) {
+        numeroRomano += "IX"
+        num -= 9
+    } else if (num >= 5) {
+        numeroRomano += "V"
+        num -= 5
+    } else if (num >= 4) {
+        numeroRomano += "IV"
+        num -= 4
+    } else {
+        numeroRomano += "I"
+        num -= 1
+    }
+  }
+
+  return numeroRomano
+}
